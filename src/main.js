@@ -1,4 +1,4 @@
-console.log('Sample JavaScript #2 HW #14');
+// console.log('Sample JavaScript #2 HW #14');
 
 /*
  * #1
