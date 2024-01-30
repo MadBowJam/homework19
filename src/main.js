@@ -142,7 +142,7 @@ function evenFn(n) {
  * Использование операторов if, switch – запрещено.
  */
 
-function ageClassification(num) {
+export function ageClassification(num) {
   return num > 0
         ? num > 24
           ? num > 44
@@ -251,14 +251,14 @@ function oddFn(n) {
 
 
 
-function mainFunc(a, b, func) {
+export function mainFunc(a, b, func) {
   if (typeof func === 'function') return func(a, b);
   return false;
 }
 
-function cbRandom(a, b) {return Math.floor(Math.random() * (b - a + 1)) + a;}
-function cbPow(a, b) {return Math.pow(a, b);}
-function cbAdd(a, b) {return a + b;}
+export function cbRandom(a, b) {return Math.floor(Math.random() * (b - a + 1)) + a;}
+export function cbPow(a, b) {return Math.pow(a, b);}
+export function cbAdd(a, b) {return a + b;}
 // cbRandom(a, b) – вычисляет и возвращает произвольное целое число в диапазоне между a и b включительно.
 
 // cbPow(a, b) – вычисляет и возвращает результат возведения числа a в степень b.
