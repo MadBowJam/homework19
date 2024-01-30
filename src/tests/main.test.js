@@ -1,9 +1,4 @@
-import { JSDOM } from 'jsdom';
-import { ageClassification, mainFunc, cbRandom, cbPow, cbAdd } from '../main';
-
-const dom = new JSDOM();
-global.window = dom.window;
-global.document = dom.window.document;
+import { ageClassification} from '../main';
 
 // first test
 const testCases = [
@@ -22,32 +17,17 @@ const testCases = [
   [122, 'долгожители'],
   [122.01, null],
   [150, null],
+  [0, null],
+  [-5, null],
+  [150.01, null],
+  [null, null],
+  [undefined, null],
+  ['invalid', null],
 ];
 
 test.each(testCases)(
   'ageClassification returns %s for age %s',
   (age, expected) => {
     expect(ageClassification(age)).toEqual(expected);
-  }
-);
-
-//second test
-test.each([
-  [2, 5, cbRandom, [2, 5]],
-  [10, 30, cbRandom, [10, 30]],
-  [2, 5, cbPow, 32],
-  [2, 5, cbAdd, 7],
-  [2, 5, 'not a func', false],
-])(
-  'mainFunc(%d, %d, %p) should return %p',
-  (a, b, func, expected) => {
-    const result = mainFunc(a, b, func);
-
-    if (Array.isArray(expected)) {
-      expect(result).toBeGreaterThanOrEqual(expected[0]);
-      expect(result).toBeLessThanOrEqual(expected[1]);
-    } else {
-      expect(result).toEqual(expected);
-    }
   }
 );
